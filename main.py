@@ -23,5 +23,5 @@ somme_unaires = Turing(
     }
 )
 
-while somme_unaires.step():
+while somme_unaires.etape():
     print(somme_unaires.bande)

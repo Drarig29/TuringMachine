@@ -5,7 +5,7 @@ class Turing():
         self.graphe = graphe
         self.etat = graphe["initial"]
 
-    def step(self):
+    def etape(self):
         # return 0 ou 1
 
         if self.graphe[self.etat] == None: # état final
