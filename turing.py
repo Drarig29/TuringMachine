@@ -18,6 +18,9 @@ class Turing:
         
         if transition[2] == 'L':
             self.position_lecture -= 1
+            if self.position_lecture < 0:
+                self.bande = ['B' for _ in range(16)] + self.bande
+                self.position_lecture += 16
         elif transition[2] == 'R':
             self.position_lecture += 1
             # augmenter la taille du ruban si besoin
