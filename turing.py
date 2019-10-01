@@ -1,4 +1,4 @@
-class Turing():
+class Turing:
     def __init__(self, position_lecture, bande, graphe):
         self.position_lecture = position_lecture
         
@@ -7,7 +7,7 @@ class Turing():
         self.bande = bande
         
         self.graphe = graphe
-        self.etat = graphe["initial"]
+        self.etat = graphe.get("initial", 0)  # au cas où il n'est pas présent
 
     def etape(self):
         if self.graphe[self.etat] == None: # état final
@@ -20,9 +20,19 @@ class Turing():
         
         if transition[2] == 'L':
             self.position_lecture -= 1
+            if self.position_lecture < 0:
+                self.bande = ['B' for _ in range(16)] + self.bande
+                self.position_lecture += 16
         elif transition[2] == 'R':
             self.position_lecture += 1
+            # augmenter la taille du ruban si besoin
+            if self.position_lecture == len(self.bande):
+                self.bande += ['B' for _ in range(16)]
+        else:
+            raise RuntimeError(f"Déplacement inconnu: {transition[2]} (possibles: L, R)")
 
         self.etat = transition[0]
+        if self.etat not in self.graphe:
+            raise RuntimeError(f"L'état demandé {self.etat} n'est pas dans le graphe (possibles: {', '.join(k for k in self.graphe.keys())})")
 
         return True # encore des étapes
