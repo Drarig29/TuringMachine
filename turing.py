@@ -1,13 +1,15 @@
 class Turing():
     def __init__(self, position_lecture, bande, graphe):
         self.position_lecture = position_lecture
+        
+        # la bande est une liste de CHAINES DE CARACTERES
+        # (donc il faut bien mettre des chaînes pour les clés des dictionaires enfants, et quand on écrit dessus)
         self.bande = bande
+        
         self.graphe = graphe
         self.etat = graphe["initial"]
 
     def etape(self):
-        # return 0 ou 1
-
         if self.graphe[self.etat] == None: # état final
             return False # il n'y a plus d'étapes
         
