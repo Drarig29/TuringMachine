@@ -24,7 +24,7 @@ class Turing:
             if transition in self.alphabet["blank"] + self.alphabet["other"]:
                 self.bande[self.position_lecture] = transition[1]
             else:
-                raise RuntimeError(f"Caractère n'appartenant pas à l'alphabet: {transition[1]} (possibles: {', '.join(self.alphabet['blank'] + self.alphabet['other'])})")
+                raise RuntimeError(f"Caractère n'appartenant pas à l'alphabet: {transition[1]} (possibles: {self.alphabet['blank'] + self.alphabet['other']})")
         
         if transition[2] == 'L':
             self.position_lecture -= 1
