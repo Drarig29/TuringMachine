@@ -3,11 +3,15 @@ class Turing:
         self.position_lecture = position_lecture
         
         # la bande est une liste de CHAINES DE CARACTERES
-        # (donc il faut bien mettre des chaînes pour les clés des dictionaires enfants, et quand on écrit dessus)
+        # (donc il faut bien mettre des chaînes pour les clés des dictionaires enfants,
+        # et quand on écrit dessus)
         self.bande = bande
         
         self.graphe = graphe
         self.etat = graphe.get("initial", 0)  # au cas où il n'est pas présent
+    
+    def __repr__(self):
+        return f"{self.bande}\n{' ' * (self.position_lecture - 1)}^"
 
     def etape(self):
         if self.graphe[self.etat] == None: # état final

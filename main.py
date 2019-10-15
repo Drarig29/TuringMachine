@@ -60,4 +60,4 @@ turing = Turing(
 )
 
 while turing.etape():
-    print(turing.bande)
+    print(turing)
