@@ -1,9 +1,9 @@
 from turing import Turing
 
-## Somme de deux nombres unaires
+# Somme de deux nombres unaires
 #
-# 2, 
-# ['B', 'B', 1, 1, 1, 1, 1, 'B', 1, 1, 1, 1, 1, 1, 1, 1, 'B', 'B'], 
+# 2,
+# ['B', 'B', 1, 1, 1, 1, 1, 'B', 1, 1, 1, 1, 1, 1, 1, 1, 'B', 'B'],
 # {
 #     "initial": 0,
 #     0: {
@@ -25,10 +25,8 @@ from turing import Turing
 
 if __name__ == '__main__':
     turing = Turing(
-        # position de la tete de lecture
-        10,
-        # conversion de chaîne à tableau de caractères (nouvelle façon de faire)
-        list("BBB1011#110BBBB"),
+        10,  # position tête
+        "BBB1011#110BBBB",  # bande
         # graphe
         {
             "initial": 0,
